@@ -1,0 +1,14 @@
+.butt{
+    position: relative;
+    left: 85%;
+}
+span{
+    color: blue;
+    font-size: 24px;
+}
+p{
+    background: bisque;
+}
+.qviz{
+    background: aqua;
+}

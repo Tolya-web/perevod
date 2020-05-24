@@ -16,6 +16,9 @@ let questionArr = ['Эверест самая высокая гора?',
 'Байкал самое глубоок озеро',
 'Москва столица Португалии'];
 
+//var display = questionArr;
+  document.getElementById("array").textContent = questionArr;
+
 function createItems(){ // Генерирование по одному вопросу через цикл
     for(let i = 0; i < 8; i++){
         let block = document.createElement('div');
@@ -97,9 +100,9 @@ if(SpeechRecognition){
                 }
             }
             
-            if(arr[i-1].toLowerCase()==='нет'){
+            if(arr[i-1].toLowerCase() === noStr){
                 console.log('Answer --', arr[i-1]);
-                answerCollect.add('нет'); //добавление нового ответа
+                answerCollect.add(noStr); //добавление нового ответа
                 noCounter++;
                 if(answerCollect.size <= questionArr.length){ // Удаление вопроса на странице
                     deleteItem();
@@ -117,6 +120,8 @@ if(SpeechRecognition){
                 console.log('Количество ответов да = ', yesCounter);
                 console.log('Количество ответов нет = ', noCounter);
                 microBtn.click();
+               document.getElementById("counter").innerHTML=yesCounter;
+               document.getElementById("counter1").innerHTML=noCounter;
 
             }
         
@@ -143,8 +148,8 @@ if(SpeechRecognition){
 function trans()
 {
     yesStr = "yes";
-    noStr = "no";
-    let tr = yandexTranslate(document.querySelector('#start-text').innerText);
+    noStr = "one";
+    let tr = yandexTranslate(document.querySelector('#array').innerText);
     document.querySelector('#finish-text').innerText = tr;
     console.log(tr);
 /*
@@ -189,8 +194,32 @@ function yandexTranslate(translateText){
             {
                 document.querySelector('#finish-text').innerText = data.text[0];
                 console.log(data.text[0])
-                //res =  data.text[0];
+                res =  data.text[0];
             })
     );
-    //return res;
+return res;
 }
+
+
+
+function RUENG(){ 
+    let time = new Date();
+    let time2 =  new Date().getTimezoneOffset();
+    time = time+ time2;
+     if  (document.getElementById("translate").innerHTML === "ENG")
+     {
+     document.getElementById("translate").innerHTML = "RU";
+    // document.getElementById("time").innerHTML = + time.getDate()+"."+time.getMonth()+1+"."+ time.getFullYear()+" "+ time.getHours()+":"+ time.getMinutes();
+    document.getElementById("time").innerHTML = time;//.toISOString();
+   
+     }else {
+      document.getElementById("translate").innerHTML = "ENG";   
+     let temp = yandexTranslate(time);
+
+     console.log(temp);
+    //  document.getElementById("time").innerHTML = time.getMonth()+1+"."+ time.getDate()+"."+ time.getFullYear()+" "+ time.getHours()+":"+ time.getMinutes();
+    document.getElementById("time").innerHTML = time ;
+     }
+console.log(typeof time);
+ };
+

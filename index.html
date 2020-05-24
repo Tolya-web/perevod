@@ -9,8 +9,7 @@
 </head>
 <body>
 
-    
-
+ 
 
     <form  method="get" id="search-form">
         <input type="text" name="q" placeholder="Input search" autocomplete="off" autofocus>
@@ -19,13 +18,22 @@
         <p id="start-text">Пример строки, которые ниже будет переведен.</p>
         <p id="finish-text"></p>
     </div>
+    <div>
+        <button class="butt" onclick="RUENG()" id="translate" >RU</button>
 
     <button id="kviz">Начать проходить тест</button>
+   <p> для прохождения теста говорите <br>
+       <span>"да" или "нет"</span> <br>
+       либо<br>
+        <span>"yes" или "one"</span></p>
+    </div>
 
-    <div id="container"></div>
+    <div id="container" class="qviz"></div>
+    <div id="time"></div>
+    <div id="counter">количество ответов "да либо Yes"</div>
+    <div id="counter1">количество ответов "нет либо one"</div>
     
-    <button id="translate" >RU</button>
-    
+    <p id="array"></p>
 
 <script src="./script.js"></script>
 <!--  <script src="./script1.js"></script> -->
